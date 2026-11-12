@@ -1,0 +1,15 @@
+[Unit]
+Description=AlliedID borderless overlay VPN (WireGuard aid0)
+Wants=network-online.target
+After=network-online.target alliedid-firstboot.service
+ConditionPathExists=/var/lib/alliedid/peers.json
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStartPre=/bin/sh -c 'umask 077; /usr/bin/aid --state-dir /var/lib/alliedid vpn config > /etc/wireguard/aid0.conf'
+ExecStart=/usr/bin/wg-quick up aid0
+ExecStop=/usr/bin/wg-quick down aid0
+
+[Install]
+WantedBy=multi-user.target

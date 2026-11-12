@@ -1,0 +1,10 @@
+/out/
+core/target/
+shell/**/bin/
+shell/**/obj/
+blocks/node_modules/
+blocks/test/out/
+*.swp
+# VS Code C/C++ IntelliSense 캐시 (1GB 이상, 기기마다 다름)
+.vscode/browse.vc.db*
+.vscode/ipch/

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- AlliedID 용 최소 Openbox 설정: 셸은 장식 없이 전체화면, 다른 앱은 일반 창 -->
+<openbox_config xmlns="http://openbox.org/3.4/rc">
+  <focus><focusNew>yes</focusNew><followMouse>no</followMouse></focus>
+  <placement><policy>Smart</policy><center>yes</center></placement>
+  <theme><name>Clearlooks</name><titleLayout>NLIMC</titleLayout></theme>
+  <desktops><number>1</number></desktops>
+  <keyboard>
+    <keybind key="W-Return"><action name="Execute"><command>x-terminal-emulator</command></action></keybind>
+    <keybind key="A-F4"><action name="Close"/></keybind>
+    <keybind key="A-Tab"><action name="NextWindow"/></keybind>
+    <keybind key="W-k"><action name="Execute"><command>onboard</command></action></keybind>
+  </keyboard>
+  <mouse><context name="Root"><mousebind button="Right" action="Press"/></context></mouse>
+  <applications>
+    <application class="alliedid-shell">
+      <decor>no</decor><fullscreen>yes</fullscreen><layer>below</layer><skip_taskbar>yes</skip_taskbar>
+    </application>
+  </applications>
+</openbox_config>

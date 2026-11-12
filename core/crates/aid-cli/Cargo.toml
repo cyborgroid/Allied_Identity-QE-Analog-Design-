@@ -1,0 +1,18 @@
+[package]
+name = "aid-cli"
+description = "`aid` — AlliedID system command (identity, permissions, network, calling, mode)."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "aid"
+path = "src/main.rs"
+
+[dependencies]
+aid-identity = { path = "../aid-identity" }
+aid-net = { path = "../aid-net" }
+aid-mode = { path = "../aid-mode" }
+serde.workspace = true
+serde_json.workspace = true
+clap.workspace = true

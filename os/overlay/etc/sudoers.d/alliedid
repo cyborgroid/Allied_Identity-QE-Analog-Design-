@@ -1,0 +1,4 @@
+# AlliedID: 비밀번호 대신 기기 권한(grant)이 문을 연다.
+# sudo 로는 아래 두 관문만 열 수 있고, 각 관문이 스스로 `aid check` 로 권한을 확인한다.
+Defaults:aid !lecture
+aid ALL=(root) NOPASSWD: /usr/libexec/alliedid/aid-install, /usr/libexec/alliedid/aid-admin

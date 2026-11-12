@@ -1,0 +1,26 @@
+#!/bin/sh
+# AlliedID 그래픽 세션: Openbox(다른 앱 창 관리) 위에 AlliedID 셸을 전체화면으로.
+export XDG_CURRENT_DESKTOP=AlliedID
+export AID_MODE_FILE=/run/alliedid/mode.json
+
+# 첫 로그인: 기본 바탕화면
+if [ ! -f "$HOME/.config/alliedid/desk.aid" ]; then
+  mkdir -p "$HOME/.config/alliedid"
+  cp /usr/share/alliedid/desk.aid "$HOME/.config/alliedid/desk.aid" 2>/dev/null || true
+fi
+
+xset s off -dpms 2>/dev/null || true
+openbox --config-file /etc/xdg/openbox/alliedid-rc.xml &
+
+# 조립대 서버 (127.0.0.1:8626), 조이스틱 매핑, 화면 키보드(폰 모드에서 자동 표시)
+systemctl --user start alliedid-blocks.service 2>/dev/null || \
+  python3 /usr/share/alliedid/blocks/server.py --root /usr/share/alliedid/blocks &
+# 게임패드: antimicrox 트레이 (프로필은 antimicrox 에서 지정, ~/.config/antimicrox 에 저장)
+command -v antimicrox >/dev/null && antimicrox --tray --hidden &
+
+# 셸이 죽으면 다시 띄운다 (세션 유지)
+while true; do
+  /opt/alliedid/shell/alliedid-shell --fullscreen
+  [ $? -eq 0 ] && break
+  sleep 1
+done

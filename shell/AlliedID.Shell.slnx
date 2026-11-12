@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/AlliedID.Shell.Core/AlliedID.Shell.Core.csproj" />
+    <Project Path="src/AlliedID.Shell/AlliedID.Shell.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/AlliedID.Shell.Core.Tests/AlliedID.Shell.Core.Tests.csproj" />
+    <Project Path="tests/AlliedID.Shell.UiTests/AlliedID.Shell.UiTests.csproj" />
+  </Folder>
+</Solution>

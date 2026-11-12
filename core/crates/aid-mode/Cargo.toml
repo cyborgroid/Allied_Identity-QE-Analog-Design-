@@ -1,0 +1,13 @@
+[package]
+name = "aid-mode"
+description = "AlliedID convergence: Phone mode on the built-in screen, Desktop mode when a monitor is attached."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true
+
+[dev-dependencies]
+tempfile.workspace = true

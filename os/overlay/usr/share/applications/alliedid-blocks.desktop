@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=AlliedID 조립대
+Comment=블록으로 바탕화면과 회로도를 조립
+Exec=xdg-open http://127.0.0.1:8626/
+Icon=applications-engineering
+Type=Application
+Categories=Development;

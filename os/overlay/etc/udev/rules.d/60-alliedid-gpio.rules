@@ -1,0 +1,2 @@
+# 회로도(조립대)에서 GPIO 를 쓰도록 alliedid 그룹에 개방
+SUBSYSTEM=="gpio", KERNEL=="gpiochip*", GROUP="alliedid", MODE="0660"

@@ -1,0 +1,3 @@
+# Raspberry Pi 5 (커널/펌웨어는 Ubuntu raspi 베이스 이미지에 이미 있음)
+linux-firmware-raspi
+rpi-eeprom

@@ -1,0 +1,13 @@
+
+# ── AlliedID chassis (Raspberry Pi 5 + 케이스 일체형 터치스크린) ─────────
+# os/build.sh rpi5 가 /boot/firmware/config.txt 끝에 덧붙인다.
+[pi5]
+# 공식 Touch Display 2 (7", 720x1280 세로 패널, DSI). 5" 모델은 -5inch 로 바꾼다.
+# 폰 모드가 기본: 세로 방향 그대로. 가로로 쓰려면 rotation=90.
+dtoverlay=vc4-kms-dsi-ili9881-7inch
+# 케이스 버튼/LED 는 조립대 회로도(GPIO 2–27)에서 지정한다. 여기서 핀을 점유하지 않는다.
+# 팬(케이스 쿨러) 커넥터 사용
+dtparam=fan_temp0=55000
+# 외부 모니터(HDMI)를 꽂으면 aid-moded 가 Desktop 모드로 전환한다 (핫플러그 허용)
+hdmi_force_hotplug:0=0
+[all]

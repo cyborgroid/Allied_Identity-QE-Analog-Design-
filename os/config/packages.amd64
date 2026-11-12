@@ -1,0 +1,17 @@
+# VMware Workstation 라이브 ISO
+linux-generic
+casper
+discover
+laptop-detect
+os-prober
+# -bin 패키지만: chroot 안에서 grub-install 을 실행하지 않도록 (설치기가 직접 실행)
+grub-pc-bin
+grub-efi-amd64-bin
+grub2-common
+efibootmgr
+dosfstools
+parted
+rsync
+squashfs-tools
+open-vm-tools
+open-vm-tools-desktop

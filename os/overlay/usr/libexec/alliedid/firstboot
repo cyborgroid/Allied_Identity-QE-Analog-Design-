@@ -1,0 +1,14 @@
+#!/bin/sh
+# 기기 신원 생성. 권한 구조:
+#   device.key  0600 root       — 비밀키 (복제 불가, 하드웨어 봉인)
+#   public.json 0644 root       — 번호/공개키 (누구나 확인)
+#   grants/     0755 root       — 권한 토큰 (누구나 확인, root 만 발급)
+set -eu
+install -d -m 0755 -o root -g root /var/lib/alliedid
+/usr/bin/aid --state-dir /var/lib/alliedid identity init
+chmod 0644 /var/lib/alliedid/public.json
+chmod -R a+rX /var/lib/alliedid/grants
+NUM=$(/usr/bin/aid --state-dir /var/lib/alliedid --json identity show | sed -n 's/.*"display": "\(.*\)".*/\1/p')
+echo "AlliedID: device number $NUM" | systemd-cat -t alliedid -p notice
+# 로그인 화면/콘솔에 번호 표시
+sed -i "s/^Number:.*/Number: $NUM/" /etc/issue 2>/dev/null || true

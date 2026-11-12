@@ -1,0 +1,13 @@
+[Unit]
+Description=AlliedID mode daemon (Phone on built-in screen, Desktop when a monitor is attached)
+After=systemd-udevd.service
+
+[Service]
+ExecStart=/usr/bin/aid mode watch --out /run/alliedid/mode.json
+RuntimeDirectory=alliedid
+RuntimeDirectoryMode=0755
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=graphical.target

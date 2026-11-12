@@ -1,0 +1,9 @@
+#!/bin/sh
+# 시스템 관리 관문: system.admin 권한이 있을 때만 root 셸/명령.
+# system.admin 은 기본으로 부여되지 않는다. 복구 모드(root)에서 `aid grant system.admin` 으로 연다.
+set -eu
+export AID_STATE_DIR=/var/lib/alliedid
+if ! /usr/bin/aid check system.admin >/dev/null; then
+  echo "🔒 system.admin 권한이 없습니다. (기기 소유자가 복구 모드에서 부여)" >&2; exit 1
+fi
+if [ $# -eq 0 ]; then exec /bin/bash -l; else exec "$@"; fi

@@ -1,0 +1,13 @@
+#!/bin/sh
+# 앱 설치 관문: apps.install 권한이 있어야 문이 돌아간다.
+set -eu
+export AID_STATE_DIR=/var/lib/alliedid
+if ! /usr/bin/aid check apps.install >/dev/null; then
+  echo "🔒 apps.install 권한이 없습니다." >&2; exit 1
+fi
+[ $# -ge 1 ] || { echo "usage: aid-install <package>..." >&2; exit 2; }
+for p in "$@"; do
+  case "$p" in -*|*[!a-z0-9.+-]*) echo "잘못된 패키지 이름: $p" >&2; exit 2;; esac
+done
+apt-get update -qq
+DEBIAN_FRONTEND=noninteractive apt-get install -y "$@"

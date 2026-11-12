@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AlliedID 조립대</title>
+  <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+  <header>
+    <div class="brand">◆ AlliedID <span>조립대</span></div>
+    <div class="actions">
+      <span id="perm" class="pill">권한 확인 중…</span>
+      <button id="reset" class="ghost" title="기본 바탕화면 블록으로">초기화</button>
+      <button id="download" class="ghost" title="desk.aid 파일로 내려받기">내려받기</button>
+      <button id="save" class="primary">저장 → 바탕화면 적용</button>
+    </div>
+  </header>
+  <main>
+    <section id="blockly" aria-label="블록 작업공간"></section>
+    <aside>
+      <h2>미리보기 <small id="deskname"></small></h2>
+      <div class="previews">
+        <svg id="preview-desktop" viewBox="0 0 1280 800" role="img" aria-label="데스크톱 미리보기"></svg>
+        <div id="preview-phone" aria-label="폰 미리보기"></div>
+      </div>
+      <ul id="warnings"></ul>
+      <h2>회로도</h2>
+      <svg id="schematic" viewBox="0 0 360 200" role="img" aria-label="GPIO 회로도"></svg>
+      <h2>DeskScript <small>desk.aid</small></h2>
+      <pre id="code"></pre>
+    </aside>
+  </main>
+  <div id="toast" role="status"></div>
+
+  <script src="vendor/blockly/blockly_compressed.js"></script>
+  <script src="vendor/blockly/msg/ko.js"></script>
+  <script src="src/deskblocks.js"></script>
+  <script src="src/app.js"></script>
+</body>
+</html>

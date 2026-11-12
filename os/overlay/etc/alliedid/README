@@ -1,0 +1,7 @@
+AlliedID 26.11.1 LTS 시스템 설정
+
+  /etc/alliedid/mode        auto | phone | desktop   (모니터 감지 강제)
+  /var/lib/alliedid/        기기 신원 (device.key 는 root 전용, public.json/grants 는 공개)
+  ~/.config/alliedid/desk.aid  바탕화면 (DeskScript, 조립대가 저장)
+
+  aid status | aid grants | aid check <권한> | aid vpn info | aid call <번호>

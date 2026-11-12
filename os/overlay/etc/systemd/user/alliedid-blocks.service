@@ -1,0 +1,9 @@
+[Unit]
+Description=AlliedID 조립대 (Blockly desk editor) on 127.0.0.1:8626
+
+[Service]
+ExecStart=/usr/bin/python3 /usr/share/alliedid/blocks/server.py --root /usr/share/alliedid/blocks
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

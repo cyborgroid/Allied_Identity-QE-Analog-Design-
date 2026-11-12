@@ -1,0 +1,26 @@
+[workspace]
+resolver = "2"
+members = ["crates/aid-identity", "crates/aid-net", "crates/aid-mode", "crates/aid-cli"]
+
+[workspace.package]
+version = "26.11.1"
+edition = "2021"
+license = "MIT"
+authors = ["AlliedID Project"]
+
+[workspace.dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+ed25519-dalek = { version = "2", features = ["rand_core"] }
+x25519-dalek = { version = "2", features = ["static_secrets"] }
+rand_core = { version = "0.6", features = ["getrandom"] }
+sha2 = "0.10"
+base64 = "0.22"
+thiserror = "2"
+clap = { version = "4", features = ["derive"] }
+tempfile = "3"
+
+[profile.release]
+lto = true
+strip = true
+codegen-units = 1

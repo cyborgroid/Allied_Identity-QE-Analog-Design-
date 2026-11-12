@@ -1,0 +1,18 @@
+[package]
+name = "aid-net"
+description = "AlliedID networking: borderless overlay VPN (WireGuard), Wi-Fi discovery, Wi-Fi + GPS location."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+aid-identity = { path = "../aid-identity" }
+serde.workspace = true
+serde_json.workspace = true
+x25519-dalek.workspace = true
+sha2.workspace = true
+base64.workspace = true
+thiserror.workspace = true
+
+[dev-dependencies]
+ed25519-dalek.workspace = true

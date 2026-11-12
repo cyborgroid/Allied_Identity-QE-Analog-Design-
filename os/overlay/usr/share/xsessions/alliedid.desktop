@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=AlliedID
+Comment=AlliedID Desktop Phone shell
+Exec=/usr/bin/alliedid-session
+Type=Application
+DesktopNames=AlliedID

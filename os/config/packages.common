@@ -1,0 +1,52 @@
+# ── AlliedID 공통 패키지 (amd64 ISO / arm64 Pi 5) ─────────────────────
+# 그래픽 세션: Xorg + Openbox(창 관리) + LightDM(자동 로그인) + AlliedID 셸
+xserver-xorg
+xinit
+x11-xserver-utils
+openbox
+lightdm
+lightdm-gtk-greeter
+# 셸(.NET self-contained) 실행에 필요한 네이티브 라이브러리
+libicu74
+libfontconfig1
+libx11-6
+libice6
+libsm6
+# 글꼴: 한글 / 이모지 아이콘 / 고정폭
+fonts-noto-cjk
+fonts-noto-color-emoji
+fonts-dejavu-core
+# 우분투 유지항목: 터미널 / 파일 / 브라우저(조립대) / 문서
+xfce4-terminal
+pcmanfm
+epiphany-browser
+mousepad
+# 네트워크: Wi-Fi 탐색, 국경 없는 VPN(WireGuard), 위치(gpsd)
+network-manager
+wireless-tools
+wpasupplicant
+wireguard-tools
+iproute2
+gpsd
+gpsd-clients
+# 통화: SIP 소프트폰 (AlliedID 번호 → sip:번호@[오버레이주소])
+baresip
+pulseaudio
+# 회로도: libgpiod 도구 (gpioset/gpiomon; Ubuntu 24.04 는 v1.6, 셸이 v1·v2 모두 지원)
+gpiod
+# 입력: 터치 화면 키보드(폰 모드), 게임 조이스틱 → 마우스/키보드
+onboard
+antimicrox
+joystick
+# 조립대 서버 / 기타
+python3
+sudo
+ca-certificates
+curl
+nano
+less
+locales
+tzdata
+dbus-x11
+polkitd
+pkexec

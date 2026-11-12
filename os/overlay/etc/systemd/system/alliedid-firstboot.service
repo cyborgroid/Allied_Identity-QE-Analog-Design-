@@ -1,0 +1,13 @@
+[Unit]
+Description=AlliedID first boot: create device identity (the device is the key)
+ConditionPathExists=!/var/lib/alliedid/device.key
+Before=display-manager.service alliedid-vpn.service
+After=local-fs.target systemd-machine-id-commit.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/libexec/alliedid/firstboot
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,14 @@
+#!/bin/sh
+# AlliedID 셸(X11)에서 안드로이드 화면 열기: Wayland 가 없으면 Weston 을 창으로 띄운다.
+set -e
+if [ -z "${WAYLAND_DISPLAY:-}" ]; then
+  export WAYLAND_DISPLAY=alliedid-android
+  weston --backend=x11-backend.so --socket="$WAYLAND_DISPLAY" --width=720 --height=1280 &
+  WESTON=$!
+  trap 'kill $WESTON 2>/dev/null' EXIT
+  sleep 2
+fi
+waydroid session start >/dev/null 2>&1 &
+sleep 3
+waydroid show-full-ui
+wait

@@ -1,0 +1,3 @@
+# Raspberry Pi 5 (arm64): 정적 musl 바이너리, C 툴체인 없이 rust-lld 로 링크
+[target.aarch64-unknown-linux-musl]
+linker = "rust-lld"

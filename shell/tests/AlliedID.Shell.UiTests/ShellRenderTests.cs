@@ -71,7 +71,7 @@ public class ShellRenderTests
     [AvaloniaFact]
     public void Phone_mode_renders_home_and_dialer()
     {
-        var w = new MainWindow(new ShellOptions(ShellMode.Phone, false, 420, 860));
+        var w = new MainWindow(new ShellOptions(ShellMode.Phone, false, 480, 800));
         w.Show();
         Pump();
         Assert.NotNull(w.GetLogicalDescendants().OfType<PhoneView>().SingleOrDefault());

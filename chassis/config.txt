@@ -1,13 +1,15 @@
 
-# ── AlliedID chassis (Raspberry Pi 5 + 케이스 일체형 터치스크린) ─────────
-# os/build.sh rpi5 가 /boot/firmware/config.txt 끝에 덧붙인다.
+# ── AlliedID chassis (Raspberry Pi 5 + 윗면 4" 터치스크린 일체형 금속 케이스) ─────────
+# os/build.sh rpi5 가 /boot/firmware/config.txt 끝에 덧붙인다. 기준 디자인: chassis/reference/After.png
 [pi5]
-# 공식 Touch Display 2 (7", 720x1280 세로 패널, DSI). 5" 모델은 -5inch 로 바꾼다.
-# 폰 모드가 기본: 세로 방향 그대로. 가로로 쓰려면 rotation=90.
-dtoverlay=vc4-kms-dsi-ili9881-7inch
-# 케이스 버튼/LED 는 조립대 회로도(GPIO 2–27)에서 지정한다. 여기서 핀을 점유하지 않는다.
-# 팬(케이스 쿨러) 커넥터 사용
+# 윗면 화면: Waveshare 4inch DSI LCD (480x800, 정전식 터치). 오버레이는 공식 펌웨어에 포함돼 있다.
+# (Pi 5 의 DSI 커넥터가 두 개라 화면 케이블을 꽂은 쪽에 따라 ",dsi0" 을 붙여야 할 수 있다 — 실물 확인 필요)
+dtoverlay=vc4-kms-dsi-waveshare-panel,4_0_inch
+# 대안: 공식 Touch Display 2 (5", 720x1280)를 쓰면 위 줄 대신
+#dtoverlay=vc4-kms-dsi-ili9881-5inch
+# 케이스 쿨러를 쓰는 경우 팬 시작 온도 (금속 몸체가 방열판, 윗면이 화면이라 방열 경로가 줄어든다)
 dtparam=fan_temp0=55000
-# 외부 모니터(HDMI)를 꽂으면 aid-moded 가 Desktop 모드로 전환한다 (핫플러그 허용)
+# 옆면 HDMI(내부 micro-HDMI → 패널형 HDMI 케이블)에 모니터를 꽂으면 aid-moded 가 Desktop 모드로 전환
 hdmi_force_hotplug:0=0
+# 케이스 버튼/LED 는 조립대 회로도(GPIO 2–27)에서 지정한다. 여기서 핀을 점유하지 않는다.
 [all]

@@ -35,14 +35,14 @@ Ubuntu 24.04 LTS를 베이스로 하며, 화면만 보이면 **Phone**, 모니�
 | Raspberry Pi 5 설치 | 같은 커스터마이즈 스크립트로 Ubuntu raspi 이미지 → `.img.xz` | [os/scripts/build-rpi5.sh](os/scripts/build-rpi5.sh) |
 | 안드로이드 | Waydroid로 안드로이드 앱 실행. AVD에서 셸 실행은 로드맵 | [android/](android) |
 | 마우스/키보드/모니터, 게임 조이스틱 | 일반 X11 입력 + `antimicrox`(게임패드 → 마우스/키보드), 폰 모드 화면 키보드 `onboard` | [os/config/packages.common](os/config/packages.common) |
-| 섀시 | Pi 5 + 7" 터치스크린 케이스(OpenSCAD), 펌웨어 디스플레이 설정 | [chassis/](chassis) |
+| 섀시 | 윗면 전체가 Waveshare 4" DSI 터치스크린(480×800)인 은색 금속 케이스(OpenSCAD, 약 110×71×30mm), 펌웨어 디스플레이 설정 | [chassis/](chassis) |
 
 ## 빠르게 실행해 보기 (개발 PC)
 
 ```bash
 make dev-identity        # 개발용 기기 신원 생성 (~/.local/share/alliedid)
 make run                 # 셸 실행 (창 비율로 Phone/Desktop 자동)
-make run-phone           # Phone 모드 (420x860)
+make run-phone           # Phone 모드 (480x800, 실제 4" 패널 해상도)
 make blocks              # 조립대 → http://127.0.0.1:8626  (저장하면 실행 중인 셸이 즉시 재조립)
 ```
 
@@ -114,7 +114,7 @@ grammar/   DeskScript.g4 (ANTLR 4.13) + C# 파서 생성 스크립트
 blocks/    조립대: Blockly 블록/생성기, 편집기 화면, 저장 서버(Python)
 os/        이미지 빌드: Docker 빌더, ISO/Pi 5/VMware 스크립트, 패키지 목록, rootfs overlay
 android/   Waydroid 설치·실행, AVD 로드맵
-chassis/   케이스(OpenSCAD), Pi 5 펌웨어 디스플레이 설정
+chassis/   기기 조립 모델(After.png), 케이스(OpenSCAD) + 렌더, Pi 5 펌웨어 디스플레이 설정
 docs/      아키텍처 문서
 tools/     antlr-4.13.2-complete.jar
 ```

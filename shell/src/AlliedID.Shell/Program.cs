@@ -38,7 +38,7 @@ internal static class Program
                     return Usage($"unknown argument '{args[i]}'");
             }
         }
-        if (mode == ShellMode.Phone && args.All(a => a != "--size")) (w, h) = (420, 860);
+        if (mode == ShellMode.Phone && args.All(a => a != "--size")) (w, h) = (480, 800); // Waveshare 4" DSI 패널
         Options = new ShellOptions(mode, full, w, h);
         return BuildAvaloniaApp().StartWithClassicDesktopLifetime([]);
     }
